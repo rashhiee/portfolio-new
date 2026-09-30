@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --font-handwriting: var(--font-handwriting);
+  --font-caveat: var(--font-handwriting);
+
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--fg-primary);
+  --color-muted: var(--bg-surface);
+  --color-muted-foreground: var(--fg-muted);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root,
+html.light,
+html:not(.dark) {
+  --bg-primary: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --fg-primary: #0F172A;
+  --fg-muted: #64748B;
+  --accent: #059669;
+  --accent-glow: #10B981;
+  --accent-cyan: #0891B2;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(15, 23, 42, 0.16);
+  --dock-bg: rgba(255, 255, 255, 0.88);
+  --dock-border: rgba(15, 23, 42, 0.12);
+  --dock-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12), 0 0 1px rgba(15, 23, 42, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --bg-primary: #090D12;
+  --bg-surface: #111720;
+  --bg-card: rgba(17, 23, 32, 0.65);
+  --fg-primary: #F1F5F9;
+  --fg-muted: #94A3B8;
+  --accent: #10B981;
+  --accent-glow: #34D399;
+  --accent-cyan: #06B6D4;
+  --border-subtle: rgba(241, 245, 249, 0.08);
+  --border-hover: rgba(241, 245, 249, 0.18);
+  --dock-bg: rgba(13, 18, 26, 0.85);
+  --dock-border: rgba(241, 245, 249, 0.12);
+  --dock-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.font-handwriting,
+.font-caveat {
+  font-family: var(--font-handwriting), "Caveat", cursive;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.font-sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Hero illustration switching: pure light vs pure dark */
+.hero-image-dark {
+  display: none !important;
+}
+.hero-image-light {
+  display: block !important;
+}
+
+html.dark .hero-image-dark {
+  display: block !important;
+}
+html.dark .hero-image-light {
+  display: none !important;
 }
