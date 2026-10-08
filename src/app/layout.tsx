@@ -7,6 +7,7 @@ import { ThemeUrlSync } from "@/components/theme/ThemeUrlSync";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { FloatingDock } from "@/components/dock/FloatingDock";
 import { RouteTransitionLoader } from "@/components/ui/RouteTransitionLoader";
+import { ThemeTransitionLoader } from "@/components/ui/ThemeTransitionLoader";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
             <ThemeUrlSync />
             <RouteTransitionLoader />
           </React.Suspense>
+          <ThemeTransitionLoader />
           <NoiseOverlay />
           <main className="relative w-full flex flex-col">
             {children}

@@ -20,7 +20,6 @@ export function RouteTransitionLoader() {
   React.useEffect(() => {
     currentPathnameRef.current = pathname;
   }, [pathname]);
-
   // When pathname changes while loading, compute remaining time to ensure smooth total duration
   React.useEffect(() => {
     if (isLoading) {
