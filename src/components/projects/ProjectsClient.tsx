@@ -61,8 +61,8 @@ export function ProjectsClient() {
 
   return (
     <div className="relative w-full h-[calc(100dvh-3.5rem)] sm:h-screen flex flex-col justify-center overflow-hidden bg-transparent dark:bg-[var(--bg-primary)] select-none">
-      {/* Aesthetic Background with right-side solar image removed on Projects */}
-      <AestheticDesktopBackground hideTopRight={true} />
+      {/* Aesthetic Four-Corner Background (Desktop Light Mode Only) */}
+      <AestheticDesktopBackground />
 
       {/* 3D Wheel Stage */}
       <div className="relative z-10 flex-1 w-full min-h-0">
