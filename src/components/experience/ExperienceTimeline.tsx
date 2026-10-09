@@ -235,7 +235,7 @@ export function ExperienceTimeline() {
           The Journey So Far
         </h2>
         <p className="font-medium text-sm md:text-base text-foreground/80 leading-relaxed max-w-xl mx-auto">
-          Full stack engineering across internships, freelance products, and production systems. 
+          Full stack engineering across internships, freelance products, and production systems.
           Building, architecting, and picking up new skills at every stop.
         </p>
       </div>

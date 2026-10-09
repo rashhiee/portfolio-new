@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Briefcase, Layers, FlaskConical } from "lucide-react";
+import { Home, Briefcase, Layers, BookOpen } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 interface NavRoute {
@@ -17,7 +17,7 @@ const routes: NavRoute[] = [
   { name: "Home", href: "/", icon: Home, shortcut: "1" },
   { name: "Experience", href: "/experience", icon: Briefcase, shortcut: "2" },
   { name: "Projects", href: "/projects", icon: Layers, shortcut: "3" },
-  { name: "Playground", href: "/playground", icon: FlaskConical, shortcut: "4" },
+  { name: "Blogs", href: "/blogs", icon: BookOpen, shortcut: "4" },
 ];
 
 export function FloatingDock() {

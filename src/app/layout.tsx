@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono, Fraunces, Kalam } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono, Fraunces, Kalam } from "next/font/google";
 import * as React from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -9,7 +9,7 @@ import { FloatingDock } from "@/components/dock/FloatingDock";
 import { RouteTransitionLoader } from "@/components/ui/RouteTransitionLoader";
 import { ThemeTransitionLoader } from "@/components/ui/ThemeTransitionLoader";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -49,7 +49,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${fraunces.variable} ${kalam.variable}`}
+      className={`${interTight.variable} ${jetbrainsMono.variable} ${fraunces.variable} ${kalam.variable}`}
     >
       <head>
         <script
@@ -68,7 +68,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased min-h-screen selection:bg-[var(--accent)] selection:text-white">
+      <body className="antialiased min-h-screen selection:bg-[var(--accent)] selection:text-white font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

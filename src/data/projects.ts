@@ -9,12 +9,13 @@ export interface ProjectItem {
   architecture: string;
   cardType: ProjectCardType;
   isFeatured: boolean;
+  image: string;
   services?: string[];
   dataLayer?: string[];
   techStack: string[];
   highlights: string[];
-  githubUrl: string; // "[ADD LINK]"
-  liveUrl: string;   // "[ADD LINK]"
+  githubUrl: string;
+  liveUrl: string;
   systemMetrics?: {
     label: string;
     value: string;
@@ -27,6 +28,7 @@ export const PROJECTS: ProjectItem[] = [
     title: "AutoSpace",
     tag: "Featured Architecture",
     tagline: "Smart Parking Management Platform",
+    image: "/images/projects/autospace.jpg",
     description:
       "Smart parking management platform engineered with decoupled microservices for high-concurrency sensor slot allocation, geospatial search, reservations, and payment processing.",
     architecture: "Decoupled Microservices (Auth, Resource, Booking, API Gateway)",
@@ -76,6 +78,7 @@ export const PROJECTS: ProjectItem[] = [
     title: "Paalazhi",
     tag: "Restaurant OS • Freelance",
     tagline: "Restaurant Operating System",
+    image: "/images/projects/paalazhi.jpg",
     description:
       "Custom restaurant operating system streamlining real-time dine-in orders, kitchen workflow automation, and payment processing.",
     architecture: "Full Stack Order Dispatch & Kitchen POS",
@@ -102,6 +105,7 @@ export const PROJECTS: ProjectItem[] = [
     title: "Shoebox",
     tag: "E-Commerce System",
     tagline: "Full-Stack Footwear E-Commerce",
+    image: "/images/projects/shoebox.jpg",
     description:
       "Full-stack footwear commerce platform featuring dynamic product catalogs, inventory management, session authentication, and integrated payment processing.",
     architecture: "Full-Stack MVC Architecture with Session Management",
@@ -128,6 +132,7 @@ export const PROJECTS: ProjectItem[] = [
     title: "Zanpad",
     tag: "Web Application",
     tagline: "Fast Notepad & Note Capture",
+    image: "/images/projects/zanpad.jpg",
     description:
       "Minimalist, high-speed notepad application designed for friction-free note-taking with Clerk Google OAuth and instant cloud deployment.",
     architecture: "Serverless Edge Application",
@@ -146,6 +151,110 @@ export const PROJECTS: ProjectItem[] = [
       { label: "Framework", value: "Next.js App Router" },
       { label: "Auth Provider", value: "Clerk Google OAuth" },
       { label: "Deployment", value: "Vercel Edge Network" },
+    ],
+  },
+  {
+    id: "rate-limiter",
+    title: "Rate Limiter",
+    tag: "Distributed Sandbox",
+    tagline: "Sliding-Window Lua Rate Limiter",
+    image: "/images/projects/ratelimiter.jpg",
+    description:
+      "Sub-millisecond distributed rate limiter leveraging Upstash Redis atomic Lua scripts for multi-region API abuse prevention and DDoS mitigation.",
+    architecture: "Edge Proxy Rate Limiter with Upstash Redis",
+    cardType: "blueprint",
+    isFeatured: false,
+    dataLayer: ["Upstash Redis (Sliding Logs, Tokens)"],
+    techStack: ["Upstash Redis", "Next.js", "TypeScript", "Lua Scripting", "Tailwind"],
+    highlights: [
+      "Atomic sliding-window Lua execution eliminating race conditions",
+      "Sub-10ms response times deployed to edge runtimes",
+      "Fail-open graceful fallback protection preserving client availability",
+    ],
+    githubUrl: "[ADD LINK]",
+    liveUrl: "[ADD LINK]",
+    systemMetrics: [
+      { label: "Engine", value: "Upstash Redis Lua" },
+      { label: "Latency", value: "<10ms Global" },
+      { label: "Algorithm", value: "Sliding Window Log" },
+    ],
+  },
+  {
+    id: "task-engine",
+    title: "Task Engine",
+    tag: "Distributed Backend",
+    tagline: "Asynchronous Queue & Worker Orchestrator",
+    image: "/images/projects/taskengine.jpg",
+    description:
+      "Durable event-driven job queue managing distributed worker pools, retries, and dead-letter pipelines with RabbitMQ and Node.js.",
+    architecture: "Event-Driven Worker Cluster",
+    cardType: "server-blade",
+    isFeatured: false,
+    dataLayer: ["RabbitMQ (AMQP Exchanges)", "Redis (Idempotency Keys)"],
+    techStack: ["RabbitMQ", "Node.js", "TypeScript", "Docker", "Redis"],
+    highlights: [
+      "Idempotent message handling with Redis deduplication keys",
+      "Automatic Dead Letter Exchange routing for poison message isolation",
+      "Concurrent worker scaling with dynamic prefetch tuning",
+    ],
+    githubUrl: "[ADD LINK]",
+    liveUrl: "[ADD LINK]",
+    systemMetrics: [
+      { label: "Broker", value: "RabbitMQ AMQP" },
+      { label: "Workers", value: "Node.js Clustered" },
+      { label: "Guarantees", value: "At-least-once + Idempotent" },
+    ],
+  },
+  {
+    id: "cloud-shield",
+    title: "Cloud Shield",
+    tag: "Cloud Infrastructure",
+    tagline: "Resilient Multi-AZ AWS Topology",
+    image: "/images/projects/cloudshield.jpg",
+    description:
+      "Highly available multi-availability zone AWS infrastructure topology with automated application load balancing, health probes, and private VPC subnets.",
+    architecture: "Multi-AZ Cloud Infrastructure",
+    cardType: "blueprint",
+    isFeatured: false,
+    dataLayer: ["Amazon RDS PostgreSQL", "ElastiCache Redis"],
+    techStack: ["AWS EC2", "AWS ECS", "ALB", "Terraform", "Docker", "VPC"],
+    highlights: [
+      "Strict network isolation: public internet-facing ALBs and private compute/DB subnets",
+      "Predictive auto-scaling groups tuned to request queues rather than delayed CPU stats",
+      "Automated blue-green container task deployment with health verification",
+    ],
+    githubUrl: "[ADD LINK]",
+    liveUrl: "[ADD LINK]",
+    systemMetrics: [
+      { label: "Regions", value: "Multi-AZ Fault Tolerant" },
+      { label: "Balancing", value: "AWS ALB Layer 7" },
+      { label: "Compute", value: "ECS Containers" },
+    ],
+  },
+  {
+    id: "devpulse",
+    title: "DevPulse",
+    tag: "Real-Time System",
+    tagline: "Distributed System Telemetry Stream",
+    image: "/images/projects/devpulse.jpg",
+    description:
+      "Real-time telemetry and cluster monitoring application broadcasting node health and message throughput via WebSocket backplanes.",
+    architecture: "Stateful WebSocket Broadcast Engine",
+    cardType: "server-blade",
+    isFeatured: false,
+    dataLayer: ["Redis Pub/Sub (Cluster Backplane)", "TimescaleDB"],
+    techStack: ["WebSockets", "Node.js", "Redis Pub/Sub", "React", "Chart.js"],
+    highlights: [
+      "Redis pub/sub backplane fanning out events across horizontal Node server instances",
+      "Heartbeat ping/pong and exponential jitter for resilient client reconnects",
+      "Low-overhead real-time metrics stream rendering at 60 FPS",
+    ],
+    githubUrl: "[ADD LINK]",
+    liveUrl: "[ADD LINK]",
+    systemMetrics: [
+      { label: "Protocol", value: "Persistent WebSockets" },
+      { label: "Backplane", value: "Redis Pub/Sub" },
+      { label: "Throughput", value: "Real-time Telemetry" },
     ],
   },
 ];
